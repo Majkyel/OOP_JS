@@ -2,11 +2,12 @@
 
 var output = document.querySelector('.output');
 
-function Phone(brand, model, price, color) {
+function Phone(brand, model, price, color, turn) {
     this.brand = brand;
     this.price = price;
     this.color = color;
     this.model = model;
+    this.turn = turn;
 }
 
 Phone.prototype.printInfo = function () {
@@ -19,13 +20,36 @@ Phone.prototype.call = function () {
     output.innerHTML += this.model + ' call to ...' + '</br>';
 }
 
-var samsungGalaxyS6 = new Phone('Samsung', 'Galaxy S6', 2670, 'silver');
-var iPhone6s = new Phone('Apple', 'iPhone 6s', 3450, 'gray');
+Phone.prototype.turnOn = function () {
+    if (this.turn === 'On') {
+        output.innerHTML += this.model + ' is turn on!' + '</br>';
+        console.log(this.model + ' is turn on!');
+    } else if (this.turn === 'Off') {
+        output.innerHTML += 'Turn on ' + this.model + '...' + '</br>';
+        console.log('Turn on ' + this.model + '...');
+    }
+}
+Phone.prototype.turnOff = function () {
+    if (this.turn === 'On') {
+        output.innerHTML += 'Turn off ' + this.model + '...' + '</br>';
+        console.log('Turn off ' + this.model + '...');
+    } else if (this.turn === 'Off') {
+        output.innerHTML += this.model + ' is turn off!' + '</br>';
+        console.log(this.model + ' is turn off!');
+    }
+}
+
+var samsungGalaxyS6 = new Phone('Samsung', 'Galaxy S6', 2670, 'silver', 'On');
+var iPhone6s = new Phone('Apple', 'iPhone 6s', 3450, 'gray', 'On');
 var onePlusOne = new Phone('OnePlus', 'One 3Z', 1760, 'white');
 
 samsungGalaxyS6.printInfo();
 iPhone6s.printInfo();
 onePlusOne.printInfo();
+
 samsungGalaxyS6.call();
 iPhone6s.call();
 onePlusOne.call();
+
+samsungGalaxyS6.turnOn();
+iPhone6s.turnOff();
