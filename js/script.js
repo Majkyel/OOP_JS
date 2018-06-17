@@ -20,28 +20,19 @@ Phone.prototype.call = function () {
     output.innerHTML += this.model + ' call to ...' + '</br>';
 }
 
-Phone.prototype.turnOn = function () {
+Phone.prototype.turnOnOff = function () {
     if (this.turn === 'On') {
-        output.innerHTML += this.model + ' is turn on!' + '</br>';
-        console.log(this.model + ' is turn on!');
+        output.innerHTML += 'Turn off ' + this.model + '...' + '</br>';
+        console.log('Turn off ' + this.model + '...');
     } else if (this.turn === 'Off') {
         output.innerHTML += 'Turn on ' + this.model + '...' + '</br>';
         console.log('Turn on ' + this.model + '...');
     }
 }
-Phone.prototype.turnOff = function () {
-    if (this.turn === 'On') {
-        output.innerHTML += 'Turn off ' + this.model + '...' + '</br>';
-        console.log('Turn off ' + this.model + '...');
-    } else if (this.turn === 'Off') {
-        output.innerHTML += this.model + ' is turn off!' + '</br>';
-        console.log(this.model + ' is turn off!');
-    }
-}
 
 var samsungGalaxyS6 = new Phone('Samsung', 'Galaxy S6', 2670, 'silver', 'On');
 var iPhone6s = new Phone('Apple', 'iPhone 6s', 3450, 'gray', 'On');
-var onePlusOne = new Phone('OnePlus', 'One 3Z', 1760, 'white');
+var onePlusOne = new Phone('OnePlus', 'One 3Z', 1760, 'white', 'Off');
 
 samsungGalaxyS6.printInfo();
 iPhone6s.printInfo();
@@ -51,5 +42,6 @@ samsungGalaxyS6.call();
 iPhone6s.call();
 onePlusOne.call();
 
-samsungGalaxyS6.turnOn();
-iPhone6s.turnOff();
+samsungGalaxyS6.turnOnOff();
+iPhone6s.turnOnOff();
+onePlusOne.turnOnOff();
