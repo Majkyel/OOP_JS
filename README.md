@@ -6,6 +6,10 @@ I prepared phone class.
 
 In this task I created my first class.
 
+## Task-11.5
+
+In this task I created class which creates button and adds text. After click in button class shows alert. This task show how use 'self' and 'this' form in class.
+
 ## TOOLS 
 
 I used package.json and task runner.
